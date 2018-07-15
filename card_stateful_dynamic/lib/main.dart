@@ -12,14 +12,17 @@ class _MyAppState extends State<MyApp>{
     Widget build(BuildContext context) {
       // TODO: implement build
       return MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.deepOrange,
+          accentColor: Colors.deepPurple
+        ),
         home: Scaffold(
           appBar: AppBar(
             title: Text("My New App"),
-            backgroundColor: Colors.tealAccent,
           ),
           body: Column(
             children: <Widget>[
-              ProductManager()
+              ProductManager('noodle')
             ],
           ),
         ),
