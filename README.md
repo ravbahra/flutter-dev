@@ -23,7 +23,7 @@ https://flutter.io/get-started/test-drive/#terminal
 
 - Card
 - raisedbutton
-- flatbutton
+- FlatButton
 - icon
 - image.assets
 - Container
@@ -297,8 +297,39 @@ return MaterialApp(
     return MaterialPageRoute(
       builder : (BuildContext context) => ProductPage(32,'john')
     )
+  },
+  onUnknownRoute : (RouteSettings settings){
+    // when onGenerateRoute fails
+    
   }
 )
+
+```
+
+## Alert Dialogs
+
+```
+RaisedButton(
+              child: Text("Hi this is awesome"), onPressed: () => showDialog(
+                context: context,
+                builder: (BuildContext conext) {
+                  return AlertDialog(
+                    title: Text("are you sure"),
+                    content: Text("this action cannot be undone"),
+                    actions: <Widget>[
+                      FlatButton(child: Text("discard"),onPressed: (){
+                        // will close the dialog
+                        Navigator.pop(context);
+                      },),
+                      FlatButton(child: Text("continue"),onPressed: (){
+                        Navigator.pop(context);
+                      },)
+
+                    ]
+                  );
+                }
+              ),
+            )
 
 ```
 

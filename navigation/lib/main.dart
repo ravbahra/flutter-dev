@@ -28,7 +28,35 @@ class MyHomePage extends StatelessWidget{
             IconButton(
               icon: Icon(Icons.account_circle),
               onPressed: () => Navigator.pushNamed(context, '/noodles/doodle/woodles'),
-            )
+            ),
+            RaisedButton(
+              child: Text("Hi this opens the alert dialog"), onPressed: () => showDialog(
+                context: context,
+                builder: (BuildContext conext) {
+                  return AlertDialog(
+                    title: Text("are you sure"),
+                    content: Text("this action cannot be undone"),
+                    actions: <Widget>[
+                      FlatButton(child: Text("discard"),onPressed: (){
+                        // will close the dialog
+                        Navigator.pop(context);
+                      },),
+                      FlatButton(child: Text("continue"),onPressed: (){
+                        Navigator.pop(context);
+                      },)
+
+                    ]
+                  );
+                }
+              ),
+            ),
+            RaisedButton(onPressed: (){
+              // allows you to define your own modal
+              showModalBottomSheet(context: context, builder: (BuildContext context){
+                // create your widget, mini widet
+                return Center(child: Text("This is your modal"),);
+              });
+            },child: Text("Click for Modal"),)
           ]
         ),
       );
@@ -62,9 +90,7 @@ class MyApp extends StatelessWidget{
               return MaterialPageRoute(
                 // you can pass stuff from here
                 builder: (BuildContext context) => ProductPage("this is correct")
-              );
-
-            
+              );        
           }
           return null;
 
