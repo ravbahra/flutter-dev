@@ -333,6 +333,71 @@ RaisedButton(
 
 ```
 
+# Handling Input
+
+There is also `onSubmitted`
+
+```
+TextField(
+  // automatically has the blinker and kayboard up when you load the page
+  //autofocus: true,
+              onChanged: (String val){
+                setState((){
+                  mytitle=val;
+                });
+              },
+              // on submitted is when we're done and submitting data
+            )
+```
+to parse a double that has been input
+
+```
+onChanged: (String value){
+  setState((){
+    price = double.parse(value);
+  })
+}
+```
+
+number keyboard - `keyboardType: TextInputType.number,`
+multiline = `maxLines: 4`
+
+## Labels
+
+```
+TextField(
+              // automatically has the blinker and kayboard up when you load the page
+              //autofocus: true,
+              decoration: InputDecoration(
+                labelText: 'Please Enter some text',
+                prefixIcon: Icon(Icons.accessible)
+              ),
+              maxLines: 4,
+              onChanged: (String val){
+                setState((){
+                  mytitle=val;
+                });
+              },
+              // on submitted is when we're done and submitting data
+            ),
+```
+
+Don't use a column widget with input boxes, you'll get the yellow bars if the keyboard goes
+over the screen
+
+use ListView with children instead
+
+```
+
+```
+
+
+# Design
+
+Don't always need a Container and margin, you can use
+
+`SizedBox()` widget
+
 # Misc
 
 ```
