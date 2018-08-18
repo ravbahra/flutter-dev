@@ -387,8 +387,19 @@ over the screen
 
 use ListView with children instead
 
-```
 
+## switches
+```
+SwitchListTile(
+            value: _accept_terms,
+            onChanged: (bool newValue) {
+
+              print(newValue);
+              setState((){
+                _accept_terms=newValue;
+              });
+            },
+            title: Text("sdf"))
 ```
 
 
@@ -413,7 +424,9 @@ Don't always need a Container and margin, you can use
                             ])),
                       ),
 ```
-
+```
+CircleAvatar(backgroundImage: NetworkImage('http://www.images.com/image1.jpg'),),
+```
 # Language Notes
 
 ## Named Constructors
